@@ -32,3 +32,7 @@ dotnet new install ./
 
 Contributions are welcome! Please feel free to submit pull requests, create issues, or provide feedback on how the templates can be improved.
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
