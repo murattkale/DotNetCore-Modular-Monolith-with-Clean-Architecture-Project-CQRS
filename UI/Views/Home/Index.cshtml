@@ -1,0 +1,25 @@
+﻿@model ResponseModel<PagedResult<Application.Features.ContentPages.Dtos.ContentPageDto>>
+@{
+    var Slider = Model.Data?.Items?.Where(o => o.ContentTypes == ContentTypes.Slider).ToList();
+    var MainPage = Model.Data?.Items?.Where(o => o.ContentTypes == ContentTypes.MainPage);
+}
+
+
+
+
+@foreach (var item in MainPage)
+{
+    @Html.Raw(item.Description)
+}
+
+@foreach (var item in MainPage)
+{
+    @Html.Raw(item.ContentShort)
+}
+
+@foreach (var item in MainPage)
+{
+    @Html.Raw(item.ContentData)
+}
+
+

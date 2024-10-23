@@ -1,0 +1,46 @@
+﻿@model Application.Features.ContentPages.Dtos.ContentPageDto
+
+
+<!-- start banner section -->
+<section class="pb-0 overflow-visible position-relative bg-light-gray padding-eleven-lr lg-padding-four-lr">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 order-2 z-index-1 padding-10-rem-left padding-60px-bottom lg-padding-3-rem-left md-padding-15px-left">
+                <div class="d-flex flex-column justify-content-center h-100">
+                    <div class="alt-font text-fast-blue text-uppercase font-weight-500 margin-30px-bottom xs-margin-10px-bottom">
+                        <a href="/" class="text-fast-blue">@SessionRequest.Trans("Home")</a><span class="margin-10px-lr">&#8226;</span>
+                        <a href="/@Model.Link" class="text-fast-blue">@Model.Name</a><span class="margin-10px-lr">&#8226;</span>
+                    </div>
+                    <h3 class="alt-font font-weight-500 letter-spacing-minus-1px text-extra-dark-gray ">
+                        @Html.Raw(Model.Description)
+                    </h3>
+                </div>
+            </div>
+            <div class="col-lg-6 px-0 order-1 align-self-end md-margin-60px-bottom">
+                <img class="overlap-image border-radius-8px md-no-margin-bottom" src="@Model.ImageUrlPrefix(DocType.Banner)" alt=""/>
+            </div>
+            <div class="col-lg-6 padding-9-rem-left overflow-hidden alt-font font-weight-600 text-white text-overlap-style-01 d-none d-md-block">
+                @Model.TemplateType.ExGetDescription()
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end banner section -->
+<!-- start section -->
+<section class="padding-70px-top sm-padding-50px-top position-relative">
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-xl-5 col-lg-6 last-paragraph-no-margin padding-3-half-rem-left md-padding-15px-left">
+                @Html.Raw(Model.ContentShort)
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@Html.Raw(Model.ContentData)
+
+@if (Model.IsForm == true && Model.FormType != null && Model.FormTypeId > 0)
+{
+    @:@await Component.InvokeAsync("FormView", new { _page = Model })
+}

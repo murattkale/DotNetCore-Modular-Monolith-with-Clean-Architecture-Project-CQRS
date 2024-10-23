@@ -1,0 +1,89 @@
+﻿@model Application.Features.ContentPages.Dtos.ContentPageDto
+
+
+<section class="pt-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 margin-4-rem-bottom sm-margin-2-rem-bottom wow animate__fadeIn">
+                <h6 class="alt-font text-extra-dark-gray font-weight-500 margin-5px-bottom">@Model.FormType.Name</h6>
+                <div class="margin-5px-bottom">
+                    @Model.FormType.Desc<span class="text-radical-red">*</span>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-9 wow animate__fadeIn">
+                <form id="form_@Model.FormTypeId" name="form_@Model.FormTypeId" method="post">
+                    <input value="@Model.FormTypeId" type="hidden" id="FormTypeId" name="FormTypeId"/>
+                    <input value="@Model.Id" type="hidden" id="ContentPageId" name="ContentPageId"/>
+                    <input value="@Model.FormType.Name" type="hidden" id="Subject" name="Subject"/>
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <label class="margin-15px-bottom" for="Name">
+                                @SessionRequest.Trans("Name") <span class="text-radical-red">*</span>
+                            </label>
+                            <input required="required" placeholder="@SessionRequest.Trans("Enter your Name")" name="Name" id="Name" type="text" class="medium-input border-radius-4px bg-white margin-30px-bottom required">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="margin-15px-bottom" for="Surname">
+                                @SessionRequest.Trans("Surname") <span class="text-radical-red">*</span>
+                            </label>
+                            <input required="required" placeholder="@SessionRequest.Trans("Enter your Surname")" name="Surname" id="Surname" type="text" class="medium-input border-radius-4px bg-white margin-30px-bottom required">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="margin-15px-bottom" for="Mail">
+                                @SessionRequest.Trans("Mail") <span class="text-radical-red">*</span>
+                            </label>
+                            <input required="required" placeholder="@SessionRequest.Trans("Enter your Mail")" id="Mail" name="Mail" type="email" class="medium-input border-radius-4px bg-white margin-30px-bottom required">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="margin-15px-bottom" for="Phone">
+                                @SessionRequest.Trans("Phone") <span class="text-radical-red">*</span>
+                            </label>
+                            <input required="required" placeholder="@SessionRequest.Trans("Enter your Phone")" id="Phone" name="Phone" type="text" class="medium-input border-radius-4px bg-white margin-30px-bottom required">
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="margin-15px-bottom">@SessionRequest.Trans("Adress")</div>
+                            <textarea required="required"  class="medium-textarea border-radius-4px bg-white h-120px margin-2-half-rem-bottom" rows="6" id="Adress"  name="Adress" placeholder="@SessionRequest.Trans("Enter your Adress")"></textarea>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="margin-15px-bottom">@SessionRequest.Trans("Message")</div>
+                            <textarea required="required"  class="medium-textarea border-radius-4px bg-white h-120px margin-2-half-rem-bottom" rows="6" id="Message" name="Message" placeholder="@SessionRequest.Trans("Enter your Message")"></textarea>
+                        </div>
+                        <div class="col-12 sm-margin-20px-bottom">
+                            <input type="hidden" name="redirect" value="">
+                            <input class="btn btn-medium btn-dark-gray mb-0 btn-round-edge-small " type="submit" name="btnFormSave" value="@SessionRequest.Trans("Send")">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    $(function () {
+        var formname = '#form_@Model.FormTypeId';
+        $(formname).submit(function (e) {
+            e.preventDefault();
+            var postModel = $.fn.toForm(formname);
+            debugger;
+            $(formname).LoadingOverlay("show");
+            $.ajx('/forms/updatecreate?cache=false',{ command: postModel }, function (resultData) {
+                    if (resultData.IsSuccess == 1) {
+                       alerts('@SessionRequest.Trans("Form Send Success")')
+                        $(formname).trigger('reset');
+                    }
+                    else {
+
+                        alerts(resultData.Message);
+                    }
+                    $(formname).LoadingOverlay("hide");
+                }, function (err) { console.error(err) ; $(formname).LoadingOverlay("hide");});
+        });
+
+    });
+</script>

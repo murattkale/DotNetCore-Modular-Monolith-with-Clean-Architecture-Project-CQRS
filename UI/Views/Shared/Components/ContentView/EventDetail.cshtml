@@ -1,0 +1,53 @@
+﻿@model Application.Features.ContentPages.Dtos.ContentPageDto
+
+<!--==============================
+Breadcumb
+============================== -->
+<div class="breadcumb-wrapper style2 bg-smoke">
+    <div class="container-fluid">
+        <div class="breadcumb-content">
+            <ul class="breadcumb-menu">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="@Model.Link">@Model.Name</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--==============================
+Team Details Page Area
+==============================-->
+<div class="team-details-page-area space">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-xl-5 col-lg-6">
+                <div class="team-inner-thumb mb-lg-0 mb-40">
+                    <img class="w-100" src="@Model.ImageUrlPrefix(DocType.Banner)" alt="img">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="team-details-about-info mb-0">
+                    <h2 class="sec-title mb-3">@Model.Name</h2>
+                    <h4 class="team-desig">@Html.Raw(Model.Description)</h4>
+                    <p class="sec-text mt-30">@Html.Raw(Model.ContentShort)</p>
+                    <p class="sec-text mt-15">@Html.Raw(Model.ContentData)</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@{
+    var request = HttpContextAccessor.HttpContext.Request;
+    var fullUrl = $"{request.Scheme}://{request.Host}{request.Path}{request.QueryString}";
+}
+<a href="https://wa.me/?text=@fullUrl" class="whatsapp-float" target="_blank">
+    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+</a>

@@ -1,0 +1,10 @@
+﻿@model ResponseModel<Application.Features.ContentPages.Dtos.ContentPageDto>
+@{
+    Layout = "_Layout";
+}
+
+<input type="hidden" id="pageinfo" value="@(Model.Data.Id + "-" + Model.Data.TemplateType + "-" + Model.Data.ContentTypes)"/>
+
+@await Component.InvokeAsync("ContentView", new { _page = Model.Data })
+
+

@@ -1,0 +1,265 @@
+﻿
+@{
+var siteDomain = "";
+
+var HeaderFooter = ViewBag.HeaderFooter as ResponseModel<PagedResult<ContentPageDto>>;
+var FooterPage = HeaderFooter.Data.Items.FirstOrDefault(o => o.ContentTypes == ContentTypes.FooterPage);
+var HeaderMenu = HeaderFooter.Data.Items.Where(o => o.IsHeaderMenu == true);
+
+var MetaDescription = SessionRequest.SiteConfig.Where(o => o.ConfigKey == "MetaDescription").Select(o => o.ConfigValue).FirstOrDefault()?.ToStr();
+var MetaKeywords = SessionRequest.SiteConfig.Where(o => o.ConfigKey == "MetaKeywords").Select(o => o.ConfigValue).FirstOrDefault()?.ToStr();
+var MetaTitle = SessionRequest.SiteConfig.Where(o => o.ConfigKey == "MetaTitle").Select(o => o.ConfigValue).FirstOrDefault()?.ToStr();
+var Facebook = SessionRequest.SiteConfig.Where(o => o.ConfigKey == "Facebook").Select(o => o.ConfigValue).FirstOrDefault()?.ToStr();
+var Instagram = SessionRequest.SiteConfig.Where(o => o.ConfigKey == "Instagram").Select(o => o.ConfigValue).FirstOrDefault()?.ToStr();
+var Twitter = SessionRequest.SiteConfig.Where(o => o.ConfigKey == "Twitter").Select(o => o.ConfigValue).FirstOrDefault()?.ToStr();
+
+var _page = ViewBag.page;
+}
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <title>@Html.Raw(_page == null ? MetaTitle : (_page.MetaTitle == null ? MetaTitle : _page.MetaTitle))</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="title" content="@Html.Raw(_page == null ? MetaTitle : (_page.MetaTitle == null ? MetaTitle : _page.MetaTitle))"/>
+
+    <meta name="description" content="@Html.Raw(_page == null ? MetaDescription : (_page.MetaDescription == null ? MetaDescription : _page.MetaDescription))">
+    <meta name="keywords" content="@Html.Raw(_page == null ? MetaKeywords : (_page.MetaKeyword == null ? MetaKeywords : _page.MetaKeyword))">
+
+    <!-- favicon icon -->
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+    <!-- style sheets and font icons  -->
+    <link rel="stylesheet" type="text/css" href="/css/font-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/theme-vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/responsive.css" />
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+
+    <script src="/cms/content/js/bootbox.min.js" type="text/javascript"></script>
+    <script src="/cms/content/js/loadingoverlay.min.js" type="text/javascript"></script>
+    <script src="/cms/content/js/general.js?v=@Guid.NewGuid()" type="text/javascript"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    
+    <script>
+        var LanguageId = @SessionRequest.LanguageId;
+        function isMobile() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // iOS devices
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return true;
+            }
+
+            // Android devices
+            if (/android/i.test(userAgent)) {
+                return true;
+            }
+
+            // Specific mobile browsers
+            if (/Mobile|Opera Mini|IEMobile|WPDesktop|Windows Phone|Kindle|Silk-Accelerated|Fennec|Minimo|Symbian|webOS|Palm|BlackBerry|BB|PlayBook|Opera Mobi|Opera Tablet|MicroMessenger/i.test(userAgent)) {
+                return true;
+            }
+
+            // Mobile Chrome
+            if (/CriOS|Chrome.*Mobile/i.test(userAgent)) {
+                return true;
+            }
+
+            // Mobile Safari
+            if (/Mobile Safari|Safari.*Mobile|iPhone|iPod|iPad/i.test(userAgent)) {
+                return true;
+            }
+
+            // Mobile Firefox
+            if (/FxiOS|Mobile.*Firefox|Mozilla.*Mobile/i.test(userAgent)) {
+                return true;
+            }
+
+            return false;
+        }
+
+        var IsMobileCustom = isMobile();
+        console.log('IsMobile : ' + IsMobileCustom)
+    </script>
+    
+</head>
+<body data-mobile-nav-style="classic">
+<!--start header-->
+<header>
+    <!-- start navigation -->
+    <nav class="@Html.Raw(Context.Request.Path.ToStr() == "/" || Context.Request.Path.ToStr() == "" ? "navbar navbar-expand-lg navbar-dark bg-transparent border-bottom border-color-white-transparent header-light fixed-top navbar-boxed header-reverse-scroll" : "navbar navbar-expand-lg navbar-light bg-white border-bottom border-color-black-transparent header-light fixed-top navbar-boxed header-reverse-scroll")">
+        <div class="container-fluid nav-header-container">
+            <div class="col-auto col-sm-6 col-lg-2 me-auto ps-lg-0">
+                <a class="navbar-brand" href="/">
+                    @if (Context.Request.Path.ToStr() == "/" || Context.Request.Path.ToStr() == "")
+                    {
+                    <img src="/images/v/logo_wlogo.png" data-at2x="/images/v/logo_wlogo.png" class="default-logo" alt="">
+                    <img src="/images/v/logo_orjlogo.png" data-at2x="/images/v/logo_orjlogo.png" class="alt-logo" alt="">
+                    <img src="/images/logo_orjlogo.png" data-at2x="/images/logo_orjlogo.png" class="mobile-logo" alt="">
+                    }
+                    else
+                    {
+                    <img src="/images/v/logo_orjlogo.png" data-at2x="/images/v/logo_orjlogo.png" class="default-logo" alt="">
+                    <img src="/images/v/logo_orjlogo.png" data-at2x="/images/v/logo_orjlogo.png" class="alt-logo" alt="">
+                    <img src="/images/logo_orjlogo.png" data-at2x="/images/logo_orjlogo.png" class="mobile-logo" alt="">
+                    }
+                </a>
+            </div>
+            <div class="col-auto col-lg-8 menu-order px-lg-0">
+                <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-line"></span>
+                    <span class="navbar-toggler-line"></span>
+                    <span class="navbar-toggler-line"></span>
+                    <span class="navbar-toggler-line"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav alt-font">
+
+                        @foreach (var item in HeaderMenu.Where(x => x.IsPublish == true && x.IsHeaderMenu == true && x.ParentId == null).OrderBy(x => x.OrderNo))
+                        {
+                        var subItems = HeaderMenu.Where(x => x.ParentId == item.Id && x.IsPublish == true && x.IsHeaderMenu == true).OrderBy(x => x.OrderNo).ToList();
+
+                        <li class="nav-item dropdown megamenu ">
+
+                            @if (string.IsNullOrEmpty(item.ExternalLink))
+                            {
+                            <a class="nav-link" href="@(item.IsClick == false ? "javascript:void(0)" : "/detail/" + item.Link)">@item.Name</a>
+                            }
+                            else
+                            {
+                            <a class="nav-link" href="@item.ExternalLink" target="@(item.ExternalLink.StartsWith("http") ? "_blank" : "")">@item.Name</a>
+                            }
+
+
+                            @if (subItems != null && subItems.Count() > 0)
+                            {
+                            <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
+                            <div class="menu-back-div dropdown-menu megamenu-content" role="menu">
+                                <div class="d-lg-flex justify-content-center">
+
+
+                                    @foreach (var itemSub in subItems)
+                                    {
+                                    var subItemsSub = HeaderMenu.Where(x => x.ParentId == itemSub.Id && x.IsPublish == true && x.IsHeaderMenu == true && x.ParentId != null).OrderBy(x => x.OrderNo).ToList();
+
+                                    <ul class="d-lg-inline-block">
+
+                                        <li class="dropdown-header alt-font">
+
+                                            @if (string.IsNullOrEmpty(itemSub.ExternalLink))
+                                            {
+                                            <a href="@(itemSub.IsClick == false ? "javascript:void(0)" : "/detail/" + itemSub.Link)" class="alt-font" style="font-size: 23px !important;font-weight: 600 !important;color: #fd6359;padding-bottom: 5px;border-bottom: 2px solid #fd6359;">
+                                                @itemSub.Name
+                                            </a>
+                                            }
+                                            else
+                                            {
+                                            <a href="/@itemSub.ExternalLink" target="@(itemSub.ExternalLink.StartsWith("http") ? "_blank" : "")">@itemSub.Name</a>
+                                            }
+
+
+                                        </li>
+
+                                        @foreach (var itemSubSub in subItemsSub)
+                                        {
+                                        <li>
+                                            @if (string.IsNullOrEmpty(itemSubSub.ExternalLink))
+                                            {
+                                            <a href="@(itemSubSub.IsClick == false ? "javascript:void(0)" : "/detail/" + itemSubSub.Link)">
+                                                @itemSubSub.Name
+                                            </a>
+                                            }
+                                            else
+                                            {
+                                            <a href="/@itemSubSub.ExternalLink" target="@(itemSubSub.ExternalLink.StartsWith("http") ? "_blank" : "")">@itemSubSub.Name</a>
+                                            }
+                                        </li>
+                                        }
+                                    </ul>
+                                    }
+
+
+                                </div>
+
+
+                            </div>
+                            }
+
+
+                        </li>
+                        }
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-auto col-lg-2 text-end pe-0 font-size-0">
+                <div class="header-social-icon d-inline-block">
+                    <a href="@Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="@Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="@Twitter" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+                <div class="header-language dropdown d-lg-inline-block">
+                    <div class="header-language dropdown d-lg-inline-block me-2">
+                        <a href="javascript:void(0);">
+                            <i class="feather icon-feather-globe"></i>
+                        </a>
+                        <ul class="dropdown-menu alt-font">
+                            @foreach (var item in SessionRequest.Languages)
+                            {
+                            <li style="margin-top:7px;margin-bottom:7px;">
+                                <a class="changeLang"  LangId="@Html.Raw(item.Id)" data-id="@Html.Raw(item.Id)" href="javascript:void(0);" title="@item.Name">
+                                        <span class="icon-country">
+                                            <img src="/images/country-flag-16X16/@item.Logo" alt="" data-no-retina="">
+                                        </span>@item.Name
+                                </a>
+                            </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </nav>
+    <!-- end navigation -->
+</header>
+<!-- end header -->
+
+@RenderBody()
+<!-- start footer -->
+
+
+@if (FooterPage != null)
+{
+@Html.Raw(FooterPage.ContentData)
+}
+<!-- end footer -->
+<!-- start scroll to top -->
+<a class="scroll-top-arrow" href="javascript:void(0);"><i class="feather icon-feather-arrow-up"></i></a>
+<!-- end scroll to top -->
+<!-- javascript -->
+
+<script type="text/javascript" src="/js/theme-vendors.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script>
+    $('.changeLang').click(function () {
+        $.post("/Home/SetLangId?cache=false", { LangId: $(this).data('id'), Referer: window.location.pathname }, function (data) {
+            window.location.reload();
+        }); return false;
+    });
+</script>
+
+@await RenderSectionAsync("scripts", required: false)
+</body>
+</html>

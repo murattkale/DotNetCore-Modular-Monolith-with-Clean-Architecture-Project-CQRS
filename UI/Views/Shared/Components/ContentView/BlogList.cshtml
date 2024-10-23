@@ -1,0 +1,61 @@
+﻿@model List<Application.Features.ContentPages.Dtos.ContentPageDto>
+
+
+<!--==============================
+Breadcumb
+============================== -->
+<div class="breadcumb-wrapper " data-bg-src="@Model.FirstOrDefault()?.Parent?.ImageUrlPrefix(DocType.Banner)">
+    <div class="container">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">@Model.FirstOrDefault()?.Parent?.Name</h1>
+        </div>
+    </div>
+</div>
+
+<!-- blog-area -->
+<section class="blog__area space">
+    <div class="container">
+        <div class="blog__inner-wrap">
+            <div class="row">
+                <div class="col-100">
+                    <div class="blog-post-wrap">
+                        <div class="row gy-50 gutter-24">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-md-12">
+                                    <div class="blog-post-item">
+                                        <div class="blog-post-thumb">
+                                            <a href="/detay/@item.Link">
+                                                <img src="@item.ImageUrlPrefix(DocType.Thumb)" alt="img">
+                                            </a>
+                                        </div>
+                                        <div class="blog-post-content">
+                                            <div class="blog-post-meta">
+                                                <ul class="list-wrap">
+                                                    <li>@item.CreaDate.ToString("dd/MM/yyyy HH:m")</li>
+                                                </ul>
+                                            </div>
+                                            <h2 class="title">
+                                                <a href="/detay/@item.Link">@item.Name</a>
+                                            </h2>
+                                            <a href="/detay/@item.Link" class="link-btn">
+                                                <span class="link-effect">
+                                                    <span class="effect-1">READ MORE</span>
+                                                    <span class="effect-1">READ MORE</span>
+                                                </span>
+                                                <img src="/sassets/img/icon/arrow-left-top.svg" alt="icon">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- blog-area-end -->

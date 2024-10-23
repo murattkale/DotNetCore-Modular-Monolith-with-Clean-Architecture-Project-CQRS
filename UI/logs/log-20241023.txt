@@ -1,0 +1,258 @@
+2024-10-23 12:02:24.263 +03:00 [INF] Executed DbCommand (71ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-10-23 12:02:24.441 +03:00 [INF] Executed DbCommand (75ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-10-23 12:02:24.459 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-10-23 12:02:24.481 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-10-23 12:02:24.532 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-10-23 12:02:24.574 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-23 12:02:24.575 +03:00 [INF] Migrations applied successfully.
+2024-10-23 12:02:25.088 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Lang] AS [l]
+        WHERE [l].[DeletedDate] IS NULL) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-10-23 12:02:25.138 +03:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SiteConfig] AS [s]
+        WHERE [s].[DeletedDate] IS NULL AND [s].[ConfigKey] = N'DataCacheDuration') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-10-23 12:02:25.156 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SiteConfig] AS [s]
+        WHERE [s].[DeletedDate] IS NULL AND [s].[ConfigKey] = N'ResponseCacheDuration') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-10-23 12:02:25.174 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [FormType] AS [f]
+        WHERE [f].[DeletedDate] IS NULL) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-10-23 12:02:25.234 +03:00 [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [User] AS [u]
+        WHERE [u].[DeletedDate] IS NULL) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-10-23 12:02:25.260 +03:00 [INF] Seed data applied successfully.
+2024-10-23 12:02:26.094 +03:00 [INF] User profile is available. Using '/Users/murat/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-10-23 12:02:26.198 +03:00 [INF] Now listening on: http://localhost:5008
+2024-10-23 12:02:26.201 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-23 12:02:26.202 +03:00 [INF] Hosting environment: Development
+2024-10-23 12:02:26.202 +03:00 [INF] Content root path: /Users/murat/RiderProjects/dotnetcoreproject/UI
+2024-10-23 12:02:48.646 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/ - null null
+2024-10-23 12:02:48.651 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-23 12:02:48.705 +03:00 [INF] No cached response available for this request.
+2024-10-23 12:02:48.769 +03:00 [INF] Executing endpoint 'UI.Controllers.HomeController.Index (UI)'
+2024-10-23 12:02:48.789 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller UI.Controllers.HomeController (UI).
+2024-10-23 12:02:48.806 +03:00 [INF] Executing action method UI.Controllers.HomeController.Index (UI) - Validation state: "Valid"
+2024-10-23 12:02:49.085 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[ConfigKey], [s].[ConfigValue], [s].[CreaDate], [s].[CreaUser], [s].[DeletedDate], [s].[IsActive], [s].[LangId], [s].[ModDate], [s].[ModUser], [s].[OrderNo]
+FROM [SiteConfig] AS [s]
+WHERE [s].[DeletedDate] IS NULL AND [s].[ConfigKey] = N'DataCacheDuration'
+2024-10-23 12:02:49.645 +03:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContentPage] AS [c]
+WHERE [c].[DeletedDate] IS NULL AND ([c].[IsHeaderMenu] = CAST(1 AS bit) OR [c].[ContentTypes] = 5)
+2024-10-23 12:02:49.763 +03:00 [INF] Executed DbCommand (76ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Address], [c].[BannerButtonText], [c].[BannerText], [c].[ButtonLink], [c].[ButtonText], [c].[ButtonTitle], [c].[ContentData], [c].[ContentOrderNo], [c].[ContentShort], [c].[ContentTypes], [c].[CreaDate], [c].[CreaUser], [c].[DeletedDate], [c].[Description], [c].[ExternalLink], [c].[IsActive], [c].[IsClick], [c].[IsFooterMenu], [c].[IsForm], [c].[IsHamburgerMenu], [c].[IsHeaderMenu], [c].[IsPublish], [c].[IsSideMenu], [c].[IsSubMenu], [c].[LangId], [c].[Link], [c].[Location], [c].[LocationLink], [c].[MetaDescription], [c].[MetaKeyword], [c].[MetaTitle], [c].[ModDate], [c].[ModUser], [c].[Name], [c].[OrderNo], [c].[OrjId], [c].[ParentId], [c].[TagManager], [c].[TemplateType], [c].[VideoLink]
+FROM [ContentPage] AS [c]
+WHERE [c].[DeletedDate] IS NULL AND ([c].[IsHeaderMenu] = CAST(1 AS bit) OR [c].[ContentTypes] = 5)
+ORDER BY [c].[OrderNo]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2024-10-23 12:02:50.059 +03:00 [INF] Executed DbCommand (49ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContentPage] AS [c]
+WHERE [c].[DeletedDate] IS NULL AND [c].[ContentTypes] IN (2, 4)
+2024-10-23 12:02:50.147 +03:00 [INF] Executed DbCommand (75ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Address], [c].[BannerButtonText], [c].[BannerText], [c].[ButtonLink], [c].[ButtonText], [c].[ButtonTitle], [c].[ContentData], [c].[ContentOrderNo], [c].[ContentShort], [c].[ContentTypes], [c].[CreaDate], [c].[CreaUser], [c].[DeletedDate], [c].[Description], [c].[ExternalLink], [c].[IsActive], [c].[IsClick], [c].[IsFooterMenu], [c].[IsForm], [c].[IsHamburgerMenu], [c].[IsHeaderMenu], [c].[IsPublish], [c].[IsSideMenu], [c].[IsSubMenu], [c].[LangId], [c].[Link], [c].[Location], [c].[LocationLink], [c].[MetaDescription], [c].[MetaKeyword], [c].[MetaTitle], [c].[ModDate], [c].[ModUser], [c].[Name], [c].[OrderNo], [c].[OrjId], [c].[ParentId], [c].[TagManager], [c].[TemplateType], [c].[VideoLink]
+FROM [ContentPage] AS [c]
+WHERE [c].[DeletedDate] IS NULL AND [c].[ContentTypes] IN (2, 4)
+ORDER BY [c].[Id] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2024-10-23 12:02:50.170 +03:00 [INF] Executed action method UI.Controllers.HomeController.Index (UI), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1356.5309ms.
+2024-10-23 12:02:58.754 +03:00 [INF] Executing ViewResult, running view Index.
+2024-10-23 12:03:00.141 +03:00 [INF] Executed ViewResult - view Index executed in 9940.1585ms.
+2024-10-23 12:03:00.148 +03:00 [INF] Executed action UI.Controllers.HomeController.Index (UI) in 11357.2413ms
+2024-10-23 12:03:00.151 +03:00 [INF] Executed endpoint 'UI.Controllers.HomeController.Index (UI)'
+2024-10-23 12:03:00.173 +03:00 [INF] The response could not be cached for this request.
+2024-10-23 12:03:00.244 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/ - 200 null text/html; charset=utf-8 11592.2126ms
+2024-10-23 12:03:00.427 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/css/animate.min.css - null null
+2024-10-23 12:03:00.427 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/css/imageRevealHover.css - null null
+2024-10-23 12:03:00.427 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/css/slick.min.css - null null
+2024-10-23 12:03:00.427 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/css/all.min.css - null null
+2024-10-23 12:03:00.427 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/css/magnific-popup.min.css - null null
+2024-10-23 12:03:00.428 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/css/bootstrap.min.css - null null
+2024-10-23 12:03:00.568 +03:00 [INF] Sending file. Request path: '/assets/css/magnific-popup.min.css'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/css/magnific-popup.min.css'
+2024-10-23 12:03:00.568 +03:00 [INF] Sending file. Request path: '/assets/css/animate.min.css'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/css/animate.min.css'
+2024-10-23 12:03:00.568 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/css/magnific-popup.min.css - 200 5272 text/css 141.4683ms
+2024-10-23 12:03:00.568 +03:00 [INF] Sending file. Request path: '/assets/css/slick.min.css'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/css/slick.min.css'
+2024-10-23 12:03:00.568 +03:00 [INF] Sending file. Request path: '/assets/css/all.min.css'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/css/all.min.css'
+2024-10-23 12:03:00.572 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/css/slick.min.css - 200 1240 text/css 145.8745ms
+2024-10-23 12:03:00.568 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/css/animate.min.css - 200 61027 text/css 141.9763ms
+2024-10-23 12:03:00.573 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/css/style.css - null null
+2024-10-23 12:03:00.568 +03:00 [INF] Sending file. Request path: '/assets/css/imageRevealHover.css'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/css/imageRevealHover.css'
+2024-10-23 12:03:00.573 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/icon/search-white.svg - null null
+2024-10-23 12:03:00.573 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/css/all.min.css - 200 59251 text/css 145.6722ms
+2024-10-23 12:03:00.572 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/icon/close.svg - null null
+2024-10-23 12:03:00.573 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/css/imageRevealHover.css - 200 2449 text/css 146.9784ms
+2024-10-23 12:03:00.575 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/vendor/jquery-3.6.0.min.js - null null
+2024-10-23 12:03:00.580 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/h/logo.png - null null
+2024-10-23 12:03:00.591 +03:00 [INF] Sending file. Request path: '/assets/css/bootstrap.min.css'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/css/bootstrap.min.css'
+2024-10-23 12:03:00.596 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/css/bootstrap.min.css - 200 194246 text/css 168.0324ms
+2024-10-23 12:03:00.599 +03:00 [INF] Sending file. Request path: '/assets/js/vendor/jquery-3.6.0.min.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/vendor/jquery-3.6.0.min.js'
+2024-10-23 12:03:00.599 +03:00 [INF] Sending file. Request path: '/assets/img/icon/search-white.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/icon/search-white.svg'
+2024-10-23 12:03:00.605 +03:00 [INF] Sending file. Request path: '/assets/img/h/logo.png'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/h/logo.png'
+2024-10-23 12:03:00.610 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/icon/search-white.svg - 200 390 image/svg+xml 37.2166ms
+2024-10-23 12:03:00.605 +03:00 [INF] Sending file. Request path: '/assets/img/icon/close.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/icon/close.svg'
+2024-10-23 12:03:00.612 +03:00 [INF] Sending file. Request path: '/assets/css/style.css'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/css/style.css'
+2024-10-23 12:03:00.608 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/jquery.magnific-popup.min.js - null null
+2024-10-23 12:03:00.605 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/vendor/jquery-3.6.0.min.js - 200 89501 text/javascript 29.5295ms
+2024-10-23 12:03:00.611 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/h/logo.png - 200 21692 image/png 30.564ms
+2024-10-23 12:03:00.612 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/slick.min.js - null null
+2024-10-23 12:03:00.612 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/css/style.css - 200 240778 text/css 39.1626ms
+2024-10-23 12:03:00.612 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/icon/close.svg - 200 265 image/svg+xml 39.556ms
+2024-10-23 12:03:00.613 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/imagesloaded.pkgd.min.js - null null
+2024-10-23 12:03:00.614 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/jquery.counterup.min.js - null null
+2024-10-23 12:03:00.620 +03:00 [INF] Sending file. Request path: '/assets/js/jquery.magnific-popup.min.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/jquery.magnific-popup.min.js'
+2024-10-23 12:03:00.672 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/jquery.magnific-popup.min.js - 200 20214 text/javascript 66.2618ms
+2024-10-23 12:03:00.671 +03:00 [INF] Sending file. Request path: '/assets/js/slick.min.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/slick.min.js'
+2024-10-23 12:03:00.671 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/bootstrap.min.js - null null
+2024-10-23 12:03:00.669 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/isotope.pkgd.min.js - null null
+2024-10-23 12:03:00.729 +03:00 [INF] Sending file. Request path: '/assets/js/imagesloaded.pkgd.min.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/imagesloaded.pkgd.min.js'
+2024-10-23 12:03:00.753 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/imagesloaded.pkgd.min.js - 200 5388 text/javascript 140.4248ms
+2024-10-23 12:03:00.753 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/slick.min.js - 200 42713 text/javascript 140.8875ms
+2024-10-23 12:03:00.754 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/fonts/fa-brands-400.woff2 - null null
+2024-10-23 12:03:00.754 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/twinmax.js - null null
+2024-10-23 12:03:00.753 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/gsap.min.js - null null
+2024-10-23 12:03:00.807 +03:00 [INF] Sending file. Request path: '/assets/js/jquery.counterup.min.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/jquery.counterup.min.js'
+2024-10-23 12:03:01.044 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/jquery.counterup.min.js - 200 10544 text/javascript 429.9066ms
+2024-10-23 12:03:01.044 +03:00 [INF] Sending file. Request path: '/assets/js/isotope.pkgd.min.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/isotope.pkgd.min.js'
+2024-10-23 12:03:01.043 +03:00 [INF] Sending file. Request path: '/assets/js/bootstrap.min.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/bootstrap.min.js'
+2024-10-23 12:03:01.052 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/bootstrap.min.js - 200 80678 text/javascript 380.5902ms
+2024-10-23 12:03:01.047 +03:00 [INF] Sending file. Request path: '/assets/fonts/fa-brands-400.woff2'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/fonts/fa-brands-400.woff2'
+2024-10-23 12:03:01.049 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/fonts/fa-solid-900.woff2 - null null
+2024-10-23 12:03:01.051 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/isotope.pkgd.min.js - 200 34825 text/javascript 379.7877ms
+2024-10-23 12:03:01.058 +03:00 [INF] Sending file. Request path: '/assets/js/gsap.min.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/gsap.min.js'
+2024-10-23 12:03:01.062 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/gsap.min.js - 200 70982 text/javascript 309.6774ms
+2024-10-23 12:03:01.047 +03:00 [INF] Sending file. Request path: '/assets/js/twinmax.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/twinmax.js'
+2024-10-23 12:03:01.063 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/twinmax.js - 200 107879 text/javascript 308.8354ms
+2024-10-23 12:03:01.067 +03:00 [INF] Sending file. Request path: '/assets/fonts/fa-solid-900.woff2'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/fonts/fa-solid-900.woff2'
+2024-10-23 12:03:01.055 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/fonts/fa-brands-400.woff2 - 200 76736 font/woff2 301.3167ms
+2024-10-23 12:03:01.067 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/imageRevealHover.js - null null
+2024-10-23 12:03:01.055 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/h/banner1.jpeg - null null
+2024-10-23 12:03:01.067 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/jarallax.min.js - null null
+2024-10-23 12:03:01.067 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/fonts/fa-solid-900.woff2 - 200 78268 font/woff2 18.4067ms
+2024-10-23 12:03:01.061 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/icon/worldwide.svg - null null
+2024-10-23 12:03:01.093 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/jquery.marquee.min.js - null null
+2024-10-23 12:03:01.153 +03:00 [INF] Sending file. Request path: '/assets/js/imageRevealHover.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/imageRevealHover.js'
+2024-10-23 12:03:01.182 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/jquery-ui.min.js - null null
+2024-10-23 12:03:01.183 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/imageRevealHover.js - 200 6155 text/javascript 115.2728ms
+2024-10-23 12:03:01.186 +03:00 [INF] Sending file. Request path: '/assets/js/jarallax.min.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/jarallax.min.js'
+2024-10-23 12:03:01.292 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/waypoints.js - null null
+2024-10-23 12:03:01.318 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/jarallax.min.js - 200 10514 text/javascript 250.6594ms
+2024-10-23 12:03:01.292 +03:00 [INF] Sending file. Request path: '/assets/img/icon/worldwide.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/icon/worldwide.svg'
+2024-10-23 12:03:01.382 +03:00 [INF] Sending file. Request path: '/assets/js/jquery-ui.min.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/jquery-ui.min.js'
+2024-10-23 12:03:01.383 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/icon/worldwide.svg - 200 2357 image/svg+xml 323.1895ms
+2024-10-23 12:03:01.383 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/wow.js - null null
+2024-10-23 12:03:01.382 +03:00 [INF] Sending file. Request path: '/assets/js/jquery.marquee.min.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/jquery.marquee.min.js'
+2024-10-23 12:03:01.383 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/jquery-ui.min.js - 200 21889 text/javascript 201.7404ms
+2024-10-23 12:03:01.384 +03:00 [INF] Sending file. Request path: '/assets/img/h/banner1.jpeg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/h/banner1.jpeg'
+2024-10-23 12:03:01.406 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/js/main.js - null null
+2024-10-23 12:03:01.406 +03:00 [INF] Sending file. Request path: '/assets/js/waypoints.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/waypoints.js'
+2024-10-23 12:03:01.407 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/jquery.marquee.min.js - 200 9029 text/javascript 313.5272ms
+2024-10-23 12:03:01.520 +03:00 [INF] Sending file. Request path: '/assets/js/wow.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/wow.js'
+2024-10-23 12:03:01.407 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/h/banner1.jpeg - 200 448356 image/jpeg 352.0143ms
+2024-10-23 12:03:01.408 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/waypoints.js - 200 8846 text/javascript 116.2607ms
+2024-10-23 12:03:01.407 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/icon/feature-icon1-1.svg - null null
+2024-10-23 12:03:01.564 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/h/IMG_9529.jpeg - null null
+2024-10-23 12:03:01.564 +03:00 [INF] Sending file. Request path: '/assets/js/main.js'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/js/main.js'
+2024-10-23 12:03:01.564 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/wow.js - 200 8416 text/javascript 181.9759ms
+2024-10-23 12:03:01.565 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/icon/arrow-left-top.svg - null null
+2024-10-23 12:03:01.565 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/icon/feature-icon1-2.svg - null null
+2024-10-23 12:03:01.566 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/js/main.js - 200 28707 text/javascript 159.5416ms
+2024-10-23 12:03:01.684 +03:00 [INF] Sending file. Request path: '/assets/img/icon/feature-icon1-1.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/icon/feature-icon1-1.svg'
+2024-10-23 12:03:01.637 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/icon/feature-icon1-3.svg - null null
+2024-10-23 12:03:01.782 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/icon/feature-icon1-1.svg - 200 969 image/svg+xml 351.2184ms
+2024-10-23 12:03:01.758 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/icon/feature-icon1-4.svg - null null
+2024-10-23 12:03:01.932 +03:00 [INF] Sending file. Request path: '/assets/img/icon/feature-icon1-2.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/icon/feature-icon1-2.svg'
+2024-10-23 12:03:01.932 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/h/pr6.jpg - null null
+2024-10-23 12:03:01.932 +03:00 [INF] Sending file. Request path: '/assets/img/icon/arrow-left-top.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/icon/arrow-left-top.svg'
+2024-10-23 12:03:02.052 +03:00 [INF] Sending file. Request path: '/assets/img/icon/feature-icon1-3.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/icon/feature-icon1-3.svg'
+2024-10-23 12:03:02.077 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/icon/arrow-left-top.svg - 200 198 image/svg+xml 512.0761ms
+2024-10-23 12:03:02.028 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/icon/feature-icon1-2.svg - 200 616 image/svg+xml 462.7318ms
+2024-10-23 12:03:02.078 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/icon/feature-icon1-3.svg - 200 714 image/svg+xml 463.2628ms
+2024-10-23 12:03:02.078 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/h/pr2.jpg - null null
+2024-10-23 12:03:02.111 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/h/p4.jpg - null null
+2024-10-23 12:03:02.111 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/h/pr3.jpg - null null
+2024-10-23 12:03:02.299 +03:00 [INF] Sending file. Request path: '/assets/img/h/IMG_9529.jpeg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/h/IMG_9529.jpeg'
+2024-10-23 12:03:02.394 +03:00 [INF] Sending file. Request path: '/assets/img/h/pr2.jpg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/h/pr2.jpg'
+2024-10-23 12:03:02.395 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/h/IMG_9529.jpeg - 200 871796 image/jpeg 830.6111ms
+2024-10-23 12:03:02.466 +03:00 [INF] Sending file. Request path: '/assets/img/h/p4.jpg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/h/p4.jpg'
+2024-10-23 12:03:02.490 +03:00 [INF] Sending file. Request path: '/assets/img/h/pr6.jpg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/h/pr6.jpg'
+2024-10-23 12:03:02.514 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/blog/blog_2_2.png - null null
+2024-10-23 12:03:02.396 +03:00 [INF] Sending file. Request path: '/assets/img/icon/feature-icon1-4.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/icon/feature-icon1-4.svg'
+2024-10-23 12:03:02.396 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/h/pr2.jpg - 200 100468 image/jpeg 317.3945ms
+2024-10-23 12:03:02.514 +03:00 [INF] Sending file. Request path: '/assets/img/h/pr3.jpg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/h/pr3.jpg'
+2024-10-23 12:03:02.514 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/h/p4.jpg - 200 111698 image/jpeg 426.8127ms
+2024-10-23 12:03:02.514 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/h/pr6.jpg - 200 132889 image/jpeg 610.8822ms
+2024-10-23 12:03:02.514 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/icon/feature-icon1-4.svg - 200 685 image/svg+xml 756.1556ms
+2024-10-23 12:03:02.515 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/blog/blog_2_3.png - null null
+2024-10-23 12:03:02.518 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-3.svg - null null
+2024-10-23 12:03:02.517 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-1.svg - null null
+2024-10-23 12:03:02.518 +03:00 [INF] Sending file. Request path: '/assets/img/blog/blog_2_2.png'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/blog/blog_2_2.png'
+2024-10-23 12:03:02.518 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/blog/blog_2_1.png - null null
+2024-10-23 12:03:02.515 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/h/pr3.jpg - 200 146456 image/jpeg 428.4171ms
+2024-10-23 12:03:02.519 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/blog/blog_2_2.png - 200 1991 image/png 5.9713ms
+2024-10-23 12:03:02.737 +03:00 [INF] Sending file. Request path: '/assets/img/client/client-1-1.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/client/client-1-1.svg'
+2024-10-23 12:03:02.638 +03:00 [INF] Sending file. Request path: '/assets/img/blog/blog_2_3.png'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/blog/blog_2_3.png'
+2024-10-23 12:03:02.712 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-2.svg - null null
+2024-10-23 12:03:02.638 +03:00 [INF] Sending file. Request path: '/assets/img/client/client-1-3.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/client/client-1-3.svg'
+2024-10-23 12:03:02.785 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-4.svg - null null
+2024-10-23 12:03:02.785 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-1.svg - 200 12785 image/svg+xml 267.809ms
+2024-10-23 12:03:02.785 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/blog/blog_2_3.png - 200 1991 image/png 270.0763ms
+2024-10-23 12:03:02.806 +03:00 [INF] Sending file. Request path: '/assets/img/blog/blog_2_1.png'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/blog/blog_2_1.png'
+2024-10-23 12:03:02.807 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-3.svg - 200 2964 image/svg+xml 288.5044ms
+2024-10-23 12:03:02.852 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-7.svg - null null
+2024-10-23 12:03:02.951 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-6.svg - null null
+2024-10-23 12:03:03.001 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/blog/blog_2_1.png - 200 1991 image/png 433.5081ms
+2024-10-23 12:03:03.022 +03:00 [INF] Sending file. Request path: '/assets/img/client/client-1-2.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/client/client-1-2.svg'
+2024-10-23 12:03:03.046 +03:00 [INF] Sending file. Request path: '/assets/img/client/client-1-4.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/client/client-1-4.svg'
+2024-10-23 12:03:03.046 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-5.svg - null null
+2024-10-23 12:03:03.069 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-8.svg - null null
+2024-10-23 12:03:03.069 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-2.svg - 200 3255 image/svg+xml 358.1235ms
+2024-10-23 12:03:03.112 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-4.svg - 200 3975 image/svg+xml 285.0157ms
+2024-10-23 12:03:03.231 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/assets/img/bg/portfolio-1-bg.png - null null
+2024-10-23 12:03:03.231 +03:00 [INF] Sending file. Request path: '/assets/img/client/client-1-7.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/client/client-1-7.svg'
+2024-10-23 12:03:03.301 +03:00 [INF] Sending file. Request path: '/assets/img/client/client-1-6.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/client/client-1-6.svg'
+2024-10-23 12:03:03.397 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-7.svg - 200 8492 image/svg+xml 588.4714ms
+2024-10-23 12:03:03.441 +03:00 [INF] Sending file. Request path: '/assets/img/client/client-1-8.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/client/client-1-8.svg'
+2024-10-23 12:03:03.441 +03:00 [INF] Sending file. Request path: '/assets/img/client/client-1-5.svg'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/client/client-1-5.svg'
+2024-10-23 12:03:03.489 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-6.svg - 200 6097 image/svg+xml 538.9887ms
+2024-10-23 12:03:03.535 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-8.svg - 200 10491 image/svg+xml 466.0274ms
+2024-10-23 12:03:03.535 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/client/client-1-5.svg - 200 1691 image/svg+xml 489.3053ms
+2024-10-23 12:03:03.536 +03:00 [INF] Sending file. Request path: '/assets/img/bg/portfolio-1-bg.png'. Physical path: '/Users/murat/RiderProjects/dotnetcoreproject/UI/wwwroot/assets/img/bg/portfolio-1-bg.png'
+2024-10-23 12:03:03.537 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/assets/img/bg/portfolio-1-bg.png - 200 106 image/png 375.6109ms
+2024-10-23 12:03:03.537 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5008/img/favicon.png - null null
+2024-10-23 12:03:03.545 +03:00 [INF] No cached response available for this request.
+2024-10-23 12:03:03.546 +03:00 [INF] The response could not be cached for this request.
+2024-10-23 12:03:03.547 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5008/img/favicon.png - 404 0 null 9.3084ms
+2024-10-23 12:03:03.548 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5008/img/favicon.png, Response status code: 404

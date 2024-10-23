@@ -1,0 +1,90 @@
+# .NET Core
+*.dotnet
+.dotnet/
+.dotnet/initialize-*
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build Folders (can be configured in the .csproj file)
+bin/
+obj/
+out/
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+packages/
+# Uncomment if necessary however generally it will be regenerated when needed
+# *.nuget/packages/
+# NuGet v3's project.json files produces more ignorable files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# StyleCop
+StyleCopReport.xml
+StyleCopCacheFile.cache
+
+# MSTest test Results
+TestResults
+
+# NUnit
+*.VisualState.xml
+TestResult.xml
+
+# Build Results of an older (pre-SDK-style) project in Visual Studio
+# NMake build results
+*.obj
+*.elf
+*.map
+*.exp
+*.lib
+*.out
+*.h2
+*.lst
+*.map
+
+# VSCode
+.vscode/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# Rider
+.idea/
+*.sln.iml
